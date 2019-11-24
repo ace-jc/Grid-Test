@@ -3,15 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 
 
-// function IndividualSquare(props){
-//   console.log("IndividualSquare props: " + props);
-  // return(
-  //   <p
-  //     style={props.linkStyle}>{props.value}</p>
-  // );
-// }
-
-
 class IndividualSquare extends React.Component {
   constructor(props) {
   	super(props)
@@ -31,7 +22,7 @@ class IndividualSquare extends React.Component {
       buttonText = "hi"
     } else {
       linkStyle = {color: '#000'}
-      buttonText = "ho"
+      buttonText = "hi"
     }
     this.setState({
       hovering: !this.state.hovering,
@@ -42,10 +33,9 @@ class IndividualSquare extends React.Component {
 
   render(){
     return(
-      <p
-        style={this.state.updatedStyle}
-        onMouseEnter = {() => this.mouseToggle()}
-        onMouseLeave = {() => this.mouseToggle()}> {this.state.text} </p>
+      <button style={this.state.updatedStyle} onMouseEnter = {() => this.mouseToggle()} onMouseLeave = {() => this.mouseToggle()}>
+        {this.state.text}
+      </button>
     );
   }
 }
@@ -60,7 +50,7 @@ class GridArray extends React.Component{
   renderIndividualSquare(i) {
     return (
       <IndividualSquare
-        value = {"startText"}
+        value = {"hi"}
         onMouseEnter = {() => this.onMouseEnter()}
         onMouseLeave = {() => this.onMouseLeave()}
       />
@@ -103,18 +93,10 @@ class App extends React.Component{
 
   render() {
    return(
-     <li>
-       <IndividualSquare
-         value = {"startText"}
+       <GridArray
          onMouseEnter = {() => this.onMouseEnter()}
          onMouseLeave = {() => this.onMouseLeave()}
        />
-         <IndividualSquare
-           value = {"startText"}
-           onMouseEnter = {() => this.onMouseEnter()}
-           onMouseLeave = {() => this.onMouseLeave()}
-         />
-     </li>
  	  );
   }
 }
