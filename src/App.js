@@ -71,7 +71,7 @@ class GridArray extends React.Component{
 
   render() {
     var numberOfRows = 10;
-    var numberOfCols = 10;
+    var numberOfCols = 5;
     var row = [];
     for(var i=0; i<numberOfRows; i++){
       var col = [];
