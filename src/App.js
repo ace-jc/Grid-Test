@@ -47,7 +47,7 @@ class GridArray extends React.Component{
   	super(props)
   }
 
-  renderIndividualSquare(i) {
+  renderIndividualSquare() {
     return (
       <IndividualSquare
         value = {"hi"}
@@ -57,24 +57,28 @@ class GridArray extends React.Component{
     );
   }
 
+  renderEntireCol(col) {
+    return (
+      <div className="grid-row">
+        {col}
+      </div>
+    );
+  }
+
   render() {
+    var numberOfRows = 7;
+    var numberOfCols = 7;
+    var row = [];
+    for(var i=0; i<numberOfRows; i++){
+      var col = [];
+      for(var j=0; j<numberOfCols; j++){
+        col.push(this.renderIndividualSquare());
+      }
+      row.push(this.renderEntireCol(col));
+    }
     return (
       <div>
-        <div className="grid-row">
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-        </div>
-        <div className="grid-row">
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-        </div>
-        <div className="grid-row">
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-          {this.renderIndividualSquare()}
-        </div>
+        {row}
       </div>
     );
   }
