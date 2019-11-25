@@ -33,7 +33,10 @@ class IndividualSquare extends React.Component {
 
   render(){
     return(
-      <button style={this.state.updatedStyle} onMouseEnter = {() => this.mouseToggle()} onMouseLeave = {() => this.mouseToggle()}>
+      <button
+        style={this.state.updatedStyle}
+        onMouseEnter = {() => this.mouseToggle()}
+        onMouseLeave = {() => this.mouseToggle()}>
         {this.state.text}
       </button>
     );
@@ -47,34 +50,35 @@ class GridArray extends React.Component{
   	super(props)
   }
 
-  renderIndividualSquare() {
+  renderIndividualSquare(j) {
     return (
       <IndividualSquare
         value = {"hi"}
         onMouseEnter = {() => this.onMouseEnter()}
         onMouseLeave = {() => this.onMouseLeave()}
+        key={j}
       />
     );
   }
 
-  renderEntireCol(col) {
+  renderEntireCol(col, i) {
     return (
-      <div className="grid-row">
+      <div className="grid-row" key={i}>
         {col}
       </div>
     );
   }
 
   render() {
-    var numberOfRows = 7;
-    var numberOfCols = 7;
+    var numberOfRows = 10;
+    var numberOfCols = 10;
     var row = [];
     for(var i=0; i<numberOfRows; i++){
       var col = [];
       for(var j=0; j<numberOfCols; j++){
-        col.push(this.renderIndividualSquare());
+        col.push(this.renderIndividualSquare(j));
       }
-      row.push(this.renderEntireCol(col));
+      row.push(this.renderEntireCol(col, i));
     }
     return (
       <div>
