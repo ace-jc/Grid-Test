@@ -2,18 +2,23 @@
   text-align: center;
 }
 
-.grid-row {
-  /* font: 24px "Century Gothic", Futura, sans-serif; */
-  margin: 20px;
-  width: 140px;
-  background-color: blue
-}
-
 .individual-square {
   /* font: 24px "Century Gothic", Futura, sans-serif; */
   margin: 20px;
   width: 140px;
   background-color: red
+}
+
+.individual-square{
+  backgroundColor: 'white';
+  width: '30px';
+  height: '30px';
+  border: "2px solid gray";
+  display: 'inline-block';
+  margin: '0';
+  marginLeft: '-1px';
+  color: '#ed1212';
+  cursor: 'pointer'
 }
 
 .App-logo {

@@ -7,8 +7,23 @@ class IndividualSquare extends React.Component {
     this.state = {
       hovering: true,
       text: this.props.value,
-      updatedStyle: this.props.style
+      updatedStyle: this.defaultStyle()
     }
+  }
+
+  defaultStyle(){
+    var cellStyles = {
+      backgroundColor: 'white',
+      width: '30px',
+      height: '30px',
+      border: "2px solid gray",
+      display: 'inline-block',
+      margin: '0',
+      marginLeft: '-1px',
+      color: '#ed1212',
+      cursor: 'pointer'
+    }
+    return cellStyles
   }
 
   mouseToggle(){
@@ -16,10 +31,14 @@ class IndividualSquare extends React.Component {
     var linkStyle;
     var buttonText;
     if (this.state.hovering) {
-      linkStyle = {color: '#ed1212',cursor: 'pointer'}
+      var cellStyles = this.defaultStyle()
+      cellStyles.backgroundColor = 'black'
+      linkStyle = cellStyles
       buttonText = "hi"
     } else {
-      linkStyle = {color: '#000'}
+      var cellStyles = this.defaultStyle()
+      cellStyles.backgroundColor = 'white'
+      linkStyle = cellStyles
       buttonText = "hi"
     }
     this.setState({
@@ -29,14 +48,16 @@ class IndividualSquare extends React.Component {
     });
   }
 
+
+
   render(){
     return(
-      <button
+      <div
         style={this.state.updatedStyle}
         onMouseEnter = {() => this.mouseToggle()}
         onMouseLeave = {() => this.mouseToggle()}>
         {this.state.text}
-      </button>
+      </div>
     );
   }
 }
