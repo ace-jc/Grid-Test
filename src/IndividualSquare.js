@@ -14,9 +14,9 @@ class IndividualSquare extends React.Component {
   defaultStyle(){
     var cellStyles = {
       backgroundColor: 'white',
-      width: '30px',
-      height: '30px',
-      border: "2px solid gray",
+      width: '32px',
+      height: '32px',
+      border: "1px solid gray",
       display: 'inline-block',
       margin: '0',
       marginLeft: '-1px',
@@ -29,21 +29,23 @@ class IndividualSquare extends React.Component {
   mouseToggle(){
     console.log("mounseToggle in IndividualSquare: " + this.state.hovering);
     var linkStyle;
-    var buttonText;
+    // var buttonText;
     if (this.state.hovering) {
       var cellStyles = this.defaultStyle()
       cellStyles.backgroundColor = 'black'
+      cellStyles.color = '#fff'
       linkStyle = cellStyles
-      buttonText = "hi"
+      // buttonText = "hi"
     } else {
       var cellStyles = this.defaultStyle()
       cellStyles.backgroundColor = 'white'
+      cellStyles.color = '#ed1212'
       linkStyle = cellStyles
-      buttonText = "hi"
+      // buttonText = "hi"
     }
     this.setState({
       hovering: !this.state.hovering,
-      text: buttonText,
+      // text: buttonText,
       updatedStyle: linkStyle
     });
   }

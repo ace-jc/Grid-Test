@@ -6,13 +6,18 @@ import IndividualSquare from './IndividualSquare'
 class GridArray extends React.Component{
   constructor(props) {
   	super(props)
+    this.state = {
+      width: this.props.width,
+      height: this.props.height,
+  		hover: false,
+  	};
   }
 
   renderIndividualSquare(j) {
     return (
       <IndividualSquare
         className = "individual-square"
-        value = {"hi"}
+        // value = {"hi"}
         onMouseEnter = {() => this.onMouseEnter()}
         onMouseLeave = {() => this.onMouseLeave()}
         key={j}
@@ -21,16 +26,24 @@ class GridArray extends React.Component{
   }
 
   renderEntireCol(col, i) {
+    let styles = {
+    margin: '0px',
+    width: this.state.width + '250px',
+    height: '30px',
+  };
     return (
-      <div className="grid-row" key={i}>
+      <div className="grid-row" style={styles} key={i}>
         {col}
       </div>
     );
   }
 
   render() {
-    var numberOfRows = 10;
-    var numberOfCols = 5;
+    console.log("this.state.width / 10: " + Math.floor(this.state.width / 30))
+    console.log("resize width: " + this.props.width)
+    console.log("resize height: " + this.props.height)
+    var numberOfRows = Math.floor(this.state.height / 30) - 1;
+    var numberOfCols = Math.floor(this.state.width / 32) - 2;
     var row = [];
     for(var i=0; i<numberOfRows; i++){
       var col = [];
