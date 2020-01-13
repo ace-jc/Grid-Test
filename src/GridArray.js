@@ -28,7 +28,7 @@ class GridArray extends React.Component{
   renderEntireCol(col, i) {
     let styles = {
     margin: '0px',
-    width: this.state.width + '250px',
+    width: this.state.width,
     height: '30px',
   };
     return (
@@ -37,13 +37,13 @@ class GridArray extends React.Component{
       </div>
     );
   }
-
+ 
   render() {
     console.log("this.state.width / 10: " + Math.floor(this.state.width / 30))
     console.log("resize width: " + this.props.width)
     console.log("resize height: " + this.props.height)
     var numberOfRows = Math.floor(this.state.height / 30) - 1;
-    var numberOfCols = Math.floor(this.state.width / 32) - 2;
+    var numberOfCols = Math.floor(this.state.width / 30) -1;
     var row = [];
     for(var i=0; i<numberOfRows; i++){
       var col = [];

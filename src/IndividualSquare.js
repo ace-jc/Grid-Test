@@ -14,8 +14,8 @@ class IndividualSquare extends React.Component {
   defaultStyle(){
     var cellStyles = {
       backgroundColor: 'white',
-      width: '32px',
-      height: '32px',
+      width: '30px',
+      height: '30px',
       border: "1px solid gray",
       display: 'inline-block',
       margin: '0',
